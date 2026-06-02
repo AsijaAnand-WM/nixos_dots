@@ -10,6 +10,7 @@
 		ffmpeg
 		brave
         waybar
+        pi-coding-agent
 	];
 
 	programs.bash = {

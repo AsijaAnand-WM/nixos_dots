@@ -87,6 +87,7 @@ vim.pack.add({
 	'https://github.com/karb94/neoscroll.nvim',
 	'https://github.com/abecodes/tabout.nvim',
     'https://github.com/neovim/nvim-lspconfig';
+    'https://github.com/lewis6991/gitsigns.nvim';
 })
 
 vim.cmd('colorscheme zenbones')
@@ -104,6 +105,7 @@ require('colorizer').setup({})
 require('oil').setup({})
 require('neoscroll').setup({})
 require('tabout').setup({})
+require('gitsigns').setup({})
 
 --ColorScheme
 vim.api.nvim_create_autocmd('ColorScheme', {
