@@ -10,7 +10,10 @@
 		ffmpeg
 		brave
         waybar
-        pi-coding-agent
+        nodejs
+        zotero
+        foliate
+        obsidian
 	];
 
 	programs.bash = {
@@ -103,7 +106,6 @@
             init.defaultBranch = "main";
         };
     };
-
 
     home.file.".config/sway".source = ./dotfiles/sway;
     home.file.".config/waybar".source = ./dotfiles/waybar;
