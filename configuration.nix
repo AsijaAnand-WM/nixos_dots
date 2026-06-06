@@ -46,13 +46,16 @@
       powerOnBoot = true;
   };
 
+  # VM Config
+  programs.dconf.enable = true;
+  programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
+
   users.users."_19" = {
     isNormalUser = true;
     description = "Asija Anand";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-
-    ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    packages = with pkgs; [];
   };
 
   nixpkgs.config.allowUnfree = true;
