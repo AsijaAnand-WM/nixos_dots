@@ -46,4 +46,5 @@ window#waybar {
 #battery.charging {
     text-decoration: underline;
     text-decoration-color: #a6e3a1;
+    background-color: transparent;
 }
