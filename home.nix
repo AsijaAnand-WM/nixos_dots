@@ -14,6 +14,7 @@
         zotero
         foliate
         obsidian
+        godot
 	];
 
 	programs.bash = {
