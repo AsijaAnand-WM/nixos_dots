@@ -66,6 +66,8 @@
 	brightnessctl
 	gcc15
 	wl-clipboard
+    unzip
+    unrar
   ];
 
   fonts.packages = with pkgs; [
