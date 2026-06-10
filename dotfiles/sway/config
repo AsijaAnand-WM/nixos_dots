@@ -107,6 +107,10 @@ input type:touchpad {
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
+    #mod + (shift) + tab for next (previous) workspace switching
+    bindsym $mod+Tab workspace next
+    bindsym $mod+Shift+Tab workspace prev
+
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
