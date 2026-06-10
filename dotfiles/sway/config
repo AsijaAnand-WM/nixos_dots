@@ -32,6 +32,10 @@ input type:touchpad {
 #       xkb_layout "eu"
 #   }
 
+input * {
+    xkb_options caps:ctrl_modifier
+}
+
     bindsym $mod+Return exec $term
 
     bindsym $mod+q kill
