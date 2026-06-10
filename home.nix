@@ -31,7 +31,8 @@
 		};
 
 		initExtra = ''
-            set -o vi
+            # set -o vi
+            export EDITOR=nvim
 			export SUDO_EDITOR=nvim
 		'';
 	};
