@@ -6,6 +6,10 @@
 	home.stateVersion = "26.05";
 
 	home.packages = with pkgs; [
+        fd
+        bat
+        ripgrep
+        ripgrep-all
 		bluetui
 		ffmpeg
 		brave
@@ -41,6 +45,22 @@
         enable = true;
         enableBashIntegration = true;
         useTheme = "half-life";
+    };
+
+    programs.delta = {
+        enable = true;
+        enableGitIntegration = true;
+        options = {
+            dark = true;
+            true-color = "always";
+            line-numbers = true;
+            side-by-side = true;
+        };
+    };
+
+    programs.fzf = {
+        enable = true;
+        enableBashIntegration = true;
     };
 
     programs.broot = {
