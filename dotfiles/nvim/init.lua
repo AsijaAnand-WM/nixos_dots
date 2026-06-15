@@ -37,6 +37,7 @@ vim.opt.termguicolors = true
 
 vim.opt.signcolumn = "yes"
 vim.opt.winborder = "single"
+vim.opt.background = "dark"
 
 -- ========================= _EXTRA_ =========================
 
@@ -93,7 +94,26 @@ vim.pack.add({
     'https://github.com/sainnhe/gruvbox-material';
 })
 
-vim.cmd('colorscheme zenburned')
+--ColorScheme
+vim.api.nvim_create_autocmd('ColorScheme', {
+    callback = function()
+        vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+        vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+        vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+        vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+        vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+
+        -- vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "none" })
+        vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#A855F7", bg = "none" })
+        -- vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = "none" })
+    end,
+})
+
+vim.g.gruvbox_material_background = 'soft'
+vim.g.gruvbox_material_better_performance = 1
+vim.cmd.colorscheme('gruvbox-material')
+
 require('nvim-autopairs').setup({})
 
 require('lualine').setup({
@@ -110,18 +130,6 @@ require('neoscroll').setup({})
 require('tabout').setup({})
 require('gitsigns').setup({})
 require('fzf-lua').setup({})
-
---ColorScheme
-vim.api.nvim_create_autocmd('ColorScheme', {
-    callback = function()
-        -- vim.api.nvim_set_hl(0, "@variable", { fg = "#cfcdc8" })
-        -- vim.api.nvim_set_hl(0, "@variable.member", { fg = "#d4cfc1" })
-        -- vim.api.nvim_set_hl(0, "@Function", { fg = "#7a5c4b" })
-        -- vim.api.nvim_set_hl(0, "@Cokanagawat", { fg = "#d4cfc1" })
-        -- vim.api.nvim_set_hl(0, "Normal", { fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg, bg = '#13171a' })
-	end,
-})
-
 
 -- ========================= __LSP__ =========================
 
