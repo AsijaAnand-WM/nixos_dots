@@ -17,7 +17,7 @@ vim.o.scrolloff = 10
 
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.incsearch = false
+vim.opt.incsearch = true
 
 vim.o.splitright = true
 vim.o.splitbelow = true
@@ -36,6 +36,7 @@ vim.opt.shortmess:append("I")
 vim.opt.termguicolors = true
 
 vim.opt.signcolumn = "yes"
+vim.opt.winborder = "single"
 
 -- ========================= _EXTRA_ =========================
 
@@ -88,9 +89,11 @@ vim.pack.add({
 	'https://github.com/abecodes/tabout.nvim',
     'https://github.com/neovim/nvim-lspconfig';
     'https://github.com/lewis6991/gitsigns.nvim';
+    'https://github.com/ibhagwan/fzf-lua';
+    'https://github.com/sainnhe/gruvbox-material';
 })
 
-vim.cmd('colorscheme zenbones')
+vim.cmd('colorscheme zenburned')
 require('nvim-autopairs').setup({})
 
 require('lualine').setup({
@@ -106,15 +109,16 @@ require('oil').setup({})
 require('neoscroll').setup({})
 require('tabout').setup({})
 require('gitsigns').setup({})
+require('fzf-lua').setup({})
 
 --ColorScheme
 vim.api.nvim_create_autocmd('ColorScheme', {
-	callback = function()
-		-- vim.api.nvim_set_hl(0, "@variable", { fg = "#cfcdc8" })
-		-- vim.api.nvim_set_hl(0, "@variable.member", { fg = "#d4cfc1" })
-		-- vim.api.nvim_set_hl(0, "@Function", { fg = "#7a5c4b" })
-		-- vim.api.nvim_set_hl(0, "@Cokanagawat", { fg = "#d4cfc1" })
-		vim.api.nvim_set_hl(0, "Normal", { fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg, bg = '#13171a' })
+    callback = function()
+        -- vim.api.nvim_set_hl(0, "@variable", { fg = "#cfcdc8" })
+        -- vim.api.nvim_set_hl(0, "@variable.member", { fg = "#d4cfc1" })
+        -- vim.api.nvim_set_hl(0, "@Function", { fg = "#7a5c4b" })
+        -- vim.api.nvim_set_hl(0, "@Cokanagawat", { fg = "#d4cfc1" })
+        -- vim.api.nvim_set_hl(0, "Normal", { fg = vim.api.nvim_get_hl(0, { name = 'Normal' }).fg, bg = '#13171a' })
 	end,
 })
 
