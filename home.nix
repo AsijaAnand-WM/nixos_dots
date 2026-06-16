@@ -116,6 +116,8 @@
 				p.cpp
 				p.nix
 				p.lua
+                p.javascript
+                p.typescript
 			]))
 		];
 
