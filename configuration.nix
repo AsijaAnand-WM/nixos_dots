@@ -47,14 +47,13 @@
     };
 
 # Kanata - Remap
-    boot.kernelModules = [ "uinput" ];
+    # boot.kernelModules = [ "uinput" ];
     hardware.uinput.enable = true;
 
     services.kanata = {
         enable = true;
-
-        keyboards.main = {
-            configFile = ./dotfiles/kanata/kanata.kbd;
+        keyboards = {
+            kanata.configFile = /home/_19/nixos_dots/dotfiles/kanata/kanata.kbd;
         };
     };
 

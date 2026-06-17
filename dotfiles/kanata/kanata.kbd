@@ -1,18 +1,187 @@
+(defcfg
+    process-unmapped-keys yes
+    windows-altgr cancel-lctl-press
+)
+
 (defvar
   tap_timeout 200
   hold_timeout 200
   long_hold_timeout 300
 )
 
-(include def/base.kbd)
-(include def/lt_hrm.kbd)
-(include def/symbol_num.kbd)
-(include def/nav.kbd)
-(include def/alias.kbd)
-
-(defcfg
-  process-unmapped-keys yes
-  windows-altgr cancel-lctl-press
+;;(include def/base.kbd)
+(defsrc
+  1    2    3    4    5  bspc   6    7    8    9    0
+  q    w    e    r    t         y    u    i    o    p
+  a    s    d    f    g         h    j    k    l    ;
+  z    x    c    v    b         n    m    ,    .    /
+            lalt          spc             ralt
 )
+
+;;(include def/lt_hrm.kbd)
+(deflayer base
+  _    _    _    _    _    _    _    _    _    _    _
+  q    w    e    r    t         y    u    i    o    p
+  a    @ss  @dd  @ff  g         h    @jj  @kk  @ll  ;
+  z    x    c    v    b         n    m    ,    .    /
+            @sft          @nav            @sym
+)
+
+(defalias
+  nav (tap-hold $tap_timeout $long_hold_timeout spc (layer-while-held navigation))
+
+  sft (tap-hold-press $tap_timeout $hold_timeout bspc lsft)
+  sym (tap-hold-press $tap_timeout $hold_timeout ret (layer-while-held symbols))
+
+  ss (tap-hold $tap_timeout $long_hold_timeout s lmet)
+  dd (tap-hold $tap_timeout $long_hold_timeout d lctl)
+  ff (tap-hold $tap_timeout $long_hold_timeout f lalt)
+  jj (tap-hold $tap_timeout $long_hold_timeout j lalt)
+  kk (tap-hold $tap_timeout $long_hold_timeout k rctl)
+  ll (tap-hold $tap_timeout $long_hold_timeout l rmet)
+)
+
+;;(include def/symbol_num.kbd)
+(deflayer symbols
+  AG-1 AG-2 AG-3 AG-4 AG-5 XX   AG-6 AG-7 AG-8 AG-9 AG-0
+  @^   @<   @>   @$   @%        @@   @&   @*   @'   @`
+  @{   @pl  @pr  @}   @=        @\   @+   @-   @/   @''
+  @~   @[   @]   @_   @#        @|   @!   @;   @:   @?
+            @num          spc             _
+)
+
+(deflayer numrow
+  _    _    _    _    _     _   _    _    _    _    _
+  @s1  @s2  @s3  @s4  @s5       @s6  @s7  @s8  @s9  @s0
+  @1   @2   @3   @4   @5        @6   @7   @8   @9   @0
+  @dk1 @dk2 @dk3 @dk4 @dk5      XX   @-   @,   @.   @/
+            _              @nbs           @sym
+)
+
+(defalias
+  num (layer-toggle numrow)
+)
+
+;;(include def/nav.kbd)
+(deflayer navigation
+  M-1  M-2  M-3  M-4  M-5  lrld M-6  M-7  M-8  M-9  M-0
+  @pad @cls bck  fwd  XX        home pgdn pgup end  @run
+  @all @sav S-tab tab XX        lft  down up   rght @fun
+  @ndo @cut @cpy @pst XX        @mwl @mwd @mwu @mwr XX
+            del             _             esc
+)
+
+(deflayer numpad
+  _    _    _    _    _     _   _    _    _    _    _
+  XX   home up   end  pgup      @/   @7   @8   @9   XX
+  XX   lft  down rght pgdn      @-   @4   @5   @6   @0
+  XX   XX   XX   XX   XX        @,   @1   @2   @3   @.
+            @std           @nbs           @std
+)
+
+(deflayer funpad
+  XX   XX   XX   XX   XX   XX   XX   XX   XX   XX   XX
+  f1   f2   f3   f4   XX        XX   XX   XX   XX   XX
+  f5   f6   f7   f8   XX        XX   lalt lctl lmet _
+  f9   f10  f11  f12  XX        XX   XX   XX   XX   XX
+            _               _             _
+)
+
+(defalias
+  std (layer-switch base)
+  pad (layer-switch numpad)
+
+  fun (layer-while-held funpad)
+
+  mwu (mwheel-up    50 120)
+  mwd (mwheel-down  50 120)
+  mwl (mwheel-left  50 120)
+  mwr (mwheel-right 50 120)
+)
+
+;;(include def/alias.kbd)
+(defalias
+
+  all C-a
+  sav C-s
+  cls C-w
+  ndo C-z
+  cut C-x
+  cpy C-c
+  pst C-v
+
+  0 0
+  1 1
+  2 2
+  3 3
+  4 4
+  5 5
+  6 6
+  7 7
+  8 8
+  9 9
+  , ,
+  . .
+)
+
+(defalias
+
+  ^  AG-q
+  <  AG-w
+  >  AG-e
+  $  AG-r
+  %  AG-t
+  @  AG-y
+  &  AG-u
+  *  AG-i
+  '  AG-o
+  `  AG-p
+
+  {  AG-a
+  pl AG-s
+  pr AG-d
+  }  AG-f
+  =  AG-g
+  \  AG-h
+  +  AG-j
+  -  AG-k
+  /  AG-l
+  '' AG-;
+
+  ~  AG-z
+  [  AG-x
+  ]  AG-c
+  _  AG-v
+  #  AG-b
+  |  AG-n
+  !  AG-m
+  ;  AG-,
+  :  AG-.
+  ?  AG-/
+)
+
+(defalias
+
+  s0 S-0
+  s1 S-1
+  s2 S-2
+  s3 S-3
+  s4 S-4
+  s5 S-5
+  s6 S-6
+  s7 S-7
+  s8 S-8
+  s9 S-9
+  nbs S-spc ;; narrow no-break space
+
+  1dk ;
+  ;; digits must be escaped, otherwise they’re interpreted as delays in ms
+  dk1 (macro @1dk @1)
+  dk2 (macro @1dk @2)
+  dk3 (macro @1dk @3)
+  dk4 (macro @1dk @4)
+  dk5 (macro @1dk @5)
+)
+
 
 ;; vim: set ft=lisp:
