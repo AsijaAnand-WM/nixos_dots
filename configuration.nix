@@ -47,7 +47,16 @@
     };
 
 # Kanata - Remap
-    services.kanata.enable = true;
+    boot.kernelModules = [ "uinput" ];
+    hardware.uinput.enable = true;
+
+    services.kanata = {
+        enable = true;
+
+        keyboards.main = {
+            configFile = ./dotfiles/kanata/kanata.kbd;
+        };
+    };
 
 # VM Config
     programs.dconf.enable = true;
