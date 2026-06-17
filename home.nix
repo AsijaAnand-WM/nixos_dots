@@ -21,6 +21,7 @@
         foliate
         obsidian
         gimp
+        wev
 	];
 
 	programs.bash = {
