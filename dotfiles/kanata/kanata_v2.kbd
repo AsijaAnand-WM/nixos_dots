@@ -13,8 +13,8 @@
         )
 
 (deftemplate temp (timeouttap timeouthold keytap keyhold)
-	(tap-hold $timeouttap $timeouthold $keytap $keyhold)
-)
+    (tap-hold $timeouttap $timeouthold $keytap $keyhold)
+    )
 
 (defalias
         hrm_s (t! temp 200 200 s lctl)

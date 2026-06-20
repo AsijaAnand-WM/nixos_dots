@@ -1,0 +1,68 @@
+(defsrc
+  q    w    e    r    t         y    u    i    o    p
+  a    s    d    f    g         h    j    k    l    ;
+  z    x    c    v    b         n    m    ,    .    /
+  lalt          spc             ralt
+  )
+
+(deflayer shifters
+        q     w       e       r         t         y    u       i       o         p
+        a     s       d       f         g         h    j       k       l         ;
+        z     x       c       v         b         n    m       ,       .         /
+        @hrm_lalt               @hrm_spc             @hrm_ralt
+        )
+
+(deflayer sym
+        XX     @!     @@     @#     @$         @^     @?     @''     @''''  XX
+        @<     @[     @{     @(     @*         @&     @)     @}      @]     @>
+        XX     @~     @\     @|     XX         @`     @-     @_      XX     XX
+        lalt               @=             XX
+        )
+
+(deflayer num
+        XX     XX     _      XX     @+         XX     @*     XX      XX     XX
+        1      2      3      4      5          6      7      8       9      0 
+        XX     _      @-     lsft   _          @%     @/     _       _      XX
+        lalt               lmet             @XX
+        )
+
+(deftemplate temp (timeouttap timeouthold keytap keyhold)
+    (tap-hold $timeouttap $timeouthold $keytap $keyhold)
+    )
+
+
+(defalias
+        !  S-1
+        @  S-2
+        #  S-3
+        $  S-4
+        ^  S-6
+        ?  S-/
+        '' '
+        ''''    S-'
+        <  S-,
+        [  [
+        {  S-[
+        pl S-9
+        *  S-8
+        &  S-7
+        pr S-0
+        }  S-]
+        ]  ]
+        >  S-.
+        ~  S-`
+        \  \
+        |  S-\
+        `  `
+        -  -
+        _  S--
+        =  =
+        +  S-+ 
+        %  S-5
+        /  /
+
+        hrm_lalt (t! temp 200 200 bspc (layer-while-held sym))
+        hrm_spc  (t! temp 200 200 spc  lsft)
+        hrm_ralt (t! temp 200 200 ret  (layer-while-held num))
+        )
+
