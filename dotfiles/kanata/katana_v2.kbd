@@ -1,0 +1,30 @@
+(defsrc
+  q    w    e    r    t         y    u    i    o    p
+  a    s    d    f    g         h    j    k    l    ;
+  z    x    c    v    b         n    m    ,    .    /
+  lalt          spc             ralt
+  )
+
+(deflayer hrm
+        q     w       e       r         t         y    u       i       o         p
+        a     @hrm_s  @hrm_d  @hrm_f    g         h    @hrm_j  @hrm_k  @hrm_l    ;
+        z     x       c       v         b         n    m       ,       .         /
+        @hrm_lalt               @hrm_spc             @hrm_ralt
+        )
+
+(deftemplate temp (timeouttap timeouthold keytap keyhold)
+	(tap-hold $timeouttap $timeouthold $keytap $keyhold)
+)
+
+(defalias
+        hrm_s (t! temp 200 200 s lctl)
+        hrm_d (t! temp 200 200 d lalt)
+        hrm_f (t! temp 200 200 f lmet)
+        hrm_j (t! temp 200 200 j rmet)
+        hrm_k (t! temp 200 200 k ralt)
+        hrm_l (t! temp 200 200 l rctl)
+        hrm_lalt (t! temp 200 200 bspc lsft)
+        hrm_spc  (t! temp 200 200 spc  lsft)
+        hrm_ralt (t! temp 200 200 ret  lsft)
+        )
+

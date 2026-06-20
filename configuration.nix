@@ -47,20 +47,18 @@
     };
 
 # Kanata - Remap
-    # boot.kernelModules = [ "uinput" ];
-    # hardware.uinput.enable = true;
-
+    # # boot.kernelModules = [ "uinput" ];
+    # # hardware.uinput.enable = true;
+    #
     services.kanata = {
         enable = true;
         keyboards = {
             "kbd" = {
                 devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
-                config = builtins.readFile ./dotfiles/kanata/kanata.kbd;
-
+                config = builtins.readFile ./dotfiles/kanata/kanata_v2.kbd;
                 extraDefCfg = ''
                     process-unmapped-keys yes
                     '';
-
             };
         };
     };

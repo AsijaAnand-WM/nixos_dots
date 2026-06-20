@@ -19,7 +19,7 @@
         nodejs
         zotero
         foliate
-        obsidian
+        glow
         gimp
         wev
 	];
@@ -31,7 +31,6 @@
 			home_test = "echo I am _19";
 			tx = "tmux";
 			jk = "nvim";
-            br = "broot";
             
             nrs = "sudo nixos-rebuild switch --flake /home/_19/nixos_dots/.#neunzehnte --impure";
             nixclean = "nix-collect-garbage --delete-older-than 10d";
@@ -63,12 +62,6 @@
 
     programs.fzf = {
         enable = true;
-        enableBashIntegration = true;
-    };
-
-    programs.broot = {
-        enable = true;
-        settings.modal = true;
         enableBashIntegration = true;
     };
 
