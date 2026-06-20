@@ -13,9 +13,9 @@
         )
 
 (deflayer sym
-        XX     @!     @@     @#     @$         @^     @?     @''     @''''  XX
-        @<     @[     @{     @(     @*         @&     @)     @}      @]     @>
-        XX     @~     @\     @|     XX         @`     @-     @_      XX     XX
+        XX     @!     @@     @#     @$         @^     @?     @apos     @dapos  XX
+        @<     @[     @{     @pl     @*         @&     @pr     @}      @]     @>
+        XX     @~     @\     @|     XX         grv     @-     @_      XX     XX
         lalt               @=             XX
         )
 
@@ -23,7 +23,7 @@
         XX     XX     _      XX     @+         XX     @*     XX      XX     XX
         1      2      3      4      5          6      7      8       9      0 
         XX     _      @-     lsft   _          @%     @/     _       _      XX
-        lalt               lmet             @XX
+        lalt               lmet              XX
         )
 
 (deftemplate temp (timeouttap timeouthold keytap keyhold)
@@ -38,8 +38,8 @@
         $  S-4
         ^  S-6
         ?  S-/
-        '' '
-        ''''    S-'
+        apos '
+        dapos    S-'
         <  S-,
         [  [
         {  S-[
@@ -50,14 +50,13 @@
         }  S-]
         ]  ]
         >  S-.
-        ~  S-`
+        ~  S-grv
         \  \
         |  S-\
-        `  `
         -  -
         _  S--
         =  =
-        +  S-+ 
+        +  S-= 
         %  S-5
         /  /
 

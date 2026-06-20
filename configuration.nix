@@ -55,10 +55,10 @@
         keyboards = {
             "kbd" = {
                 devices = [ "/dev/input/by-path/platform-i8042-serio-0-event-kbd" ];
-                config = builtins.readFile ./dotfiles/kanata/kanata_v3.kbd;
-                extraDefCfg = ''
-                    process-unmapped-keys yes
-                    '';
+                config = builtins.readFile ./dotfiles/kanata/kanata_v4.kbd;
+                # extraDefCfg = ''
+                #     process-unmapped-keys yes
+                #     '';
             };
         };
     };
