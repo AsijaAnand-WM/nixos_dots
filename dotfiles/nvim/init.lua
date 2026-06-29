@@ -1,6 +1,7 @@
 -- ========================= OPTIONS =========================
 
-vim.g.mapleader = ' 'vim.g.maplocalleader = ' '
+vim.g.mapleader = '\t'
+vim.g.maplocalleader = '\t'
 vim.g.have_nerd_font = true
 
 vim.opt.showmode = false
