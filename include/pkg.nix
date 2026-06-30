@@ -21,6 +21,8 @@
         gomi
         calcure
         presenterm
+        gitu
+	fsel
         zen-browser.packages.${pkgs.system}.default
     ];
 }

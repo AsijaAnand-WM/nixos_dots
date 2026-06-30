@@ -1,7 +1,0 @@
-{ ... }:
-
-{
-    programs.gitu = {
-        enable = true;
-    };
-}

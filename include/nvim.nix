@@ -10,7 +10,7 @@
         vimAlias = true;
         vimdiffAlias = true;
 
-        initLua = builtins.readFile ./dotfiles/nvim/init.lua;
+        # initLua = builtins.readFile ../dotfiles/nvim/init.lua;
 
         extraPackages = with pkgs; [
             lua-language-server

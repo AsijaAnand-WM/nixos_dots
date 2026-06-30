@@ -7,7 +7,6 @@
         ./include/dir_source.nix
         ./include/fzf.nix
         ./include/git.nix
-        ./include/gitu.nix
         ./include/kitty.nix
         ./include/nvim.nix
         ./include/oh-my-posh.nix
@@ -20,5 +19,4 @@
 	home.homeDirectory = "/home/_19";
 	home.stateVersion = "26.05";
 
-    programs.home-manager.enable = true;
 }
