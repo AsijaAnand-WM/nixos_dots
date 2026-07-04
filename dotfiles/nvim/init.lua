@@ -147,6 +147,7 @@ vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('n', '<leader>n', ':Oil<CR>')
 vim.keymap.set('n', '<leader>w', ':update<CR>')
 vim.keymap.set('n', '<leader>x', ':x<CR>')
+vim.keymap.set('n', '<leader>tp', ':! tmux popup<CR>')
 
 vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>')
 vim.keymap.set('n', '<leader>fg', ':FzfLua live_grep<CR>')

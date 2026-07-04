@@ -6,8 +6,14 @@
 
         shellAliases = {
             home_test = "echo I am _19";
-            tx = "tmux";
-            jk = "nvim";
+            tx  = "tmux";
+            jk  = "nvim";
+            jkf = "nvim $(ls -a | fzf --reverse)";
+            bt  = "bluetui";
+            tp  = "tmux popup";
+
+            "."  = "cd ..";
+            ".." = "cd ../..";
 
             nrs = "sudo nixos-rebuild switch --flake /home/_19/nixos_dots/.#neunzehnte --impure";
             nixclean = "nix-collect-garbage --delete-older-than 10d";
