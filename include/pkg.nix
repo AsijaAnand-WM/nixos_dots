@@ -22,7 +22,12 @@
         calcure
         presenterm
         gitu
-	fsel
+        fsel
+        cmus
+        yt-dlp
+        gnuplot
+        d2
+        tealdeer
         zen-browser.packages.${pkgs.system}.default
     ];
 }

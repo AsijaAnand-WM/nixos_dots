@@ -5,7 +5,15 @@ set $down j
 set $up k
 set $right l
 set $term kitty
-set $menu wmenu-run
+# set $menu wmenu-run
+
+set $menu kitty --title launcher -e fsel
+bindsym $mod+d exec $menu
+for_window [title="^launcher$"] floating enable, resize set width 400 height 700, border none
+
+# Clipboard history
+bindsym $mod+c exec 'alacritty --title clipboard -e fsel --cclip'
+
 
 # Wallpaper 
 output * bg /home/_19/nixos_dots/bg/line-deer.png fill
@@ -40,7 +48,7 @@ input type:touchpad {
 
     bindsym $mod+q kill
 
-    bindsym $mod+d exec $menu
+    # bindsym $mod+d exec $menu
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -191,5 +199,5 @@ bar {
     swaybar_command waybar
     mode invisible
 }
-
+default_border pixel 2
 include /etc/sway/config.d/*
