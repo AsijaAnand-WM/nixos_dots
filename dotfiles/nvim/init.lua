@@ -83,8 +83,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 local gh = function(x) return 'https://github.com/' .. x end
 vim.pack.add({
     gh('unblevable/quick-scope'),
-    gh('rktjmp/lush.nvim'),
-    gh('zenbones-theme/zenbones.nvim'),
     gh('windwp/nvim-autopairs'),
     gh('nvim-tree/nvim-web-devicons'),
     gh('nvim-lualine/lualine.nvim'),
@@ -97,6 +95,11 @@ vim.pack.add({
     gh('sainnhe/gruvbox-material');
     gh('folke/todo-comments.nvim');
     gh('j-hui/fidget.nvim');
+    gh('stevearc/quicker.nvim');
+    gh('hat0uma/csvview.nvim');
+    gh('nvim-mini/mini.ai');
+    gh('nvim-mini/mini.splitjoin');
+    gh('kylechui/nvim-surround');
 
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim';
 })
@@ -110,6 +113,11 @@ vim.api.nvim_create_autocmd('ColorScheme', {
         vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
         vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
         vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+
+        vim.api.nvim_set_hl(0, "LspInlayHint", {
+            link = "Comment",
+            italic = true,
+        })
 
         -- vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "none" })
         vim.api.nvim_set_hl(0, "GitSignsChange", { fg = "#A855F7", bg = "none" })
@@ -137,6 +145,34 @@ require('neoscroll').setup({})
 require('gitsigns').setup({})
 require('fzf-lua').setup({})
 require('fidget').setup({})
+require('mini.ai').setup({})
+require('mini.splitjoin').setup({})
+require('nvim-surround').setup({})
+
+require('csvview').setup({})
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "csv",
+    callback = function()
+        vim.cmd('CsvViewEnable')
+    end,
+})
+
+require("quicker").setup({
+  keys = {
+    {
+      ">",
+      function()
+        require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
+      end
+    },
+    {
+      "<",
+      function()
+        require("quicker").collapse()
+      end
+    },
+  },
+})
 
 require("todo-comments").setup({
     signs = false,
@@ -180,6 +216,7 @@ vim.lsp.enable({
     'taplo',
 })
 
+vim.lsp.inlay_hint.enable(true)
 vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
@@ -211,5 +248,12 @@ vim.keymap.set('n', '<leader>gr', ':FzfLua lsp_references<CR>')
 vim.keymap.set('n', '<leader>gi', ':FzfLua lsp_implementations<CR>')
 vim.keymap.set('n', '<leader>fa', ':FzfLua lsp_code_actions<CR>')
 vim.keymap.set('n', '<leader>fm', ':FzfLua marks<CR>')
+
+vim.keymap.set("n", "<leader>q", function()
+  require("quicker").toggle()
+end)
+vim.keymap.set("n", "<leader>l", function()
+  require("quicker").toggle({ loclist = true })
+end)
 
 -- ========================= __END__ =========================
