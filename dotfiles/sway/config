@@ -16,7 +16,8 @@ bindsym $mod+c exec 'alacritty --title clipboard -e fsel --cclip'
 
 
 # Wallpaper 
-output * bg /home/_19/nixos_dots/bg/line-deer.png fill
+# output * bg /home/_19/nixos_dots/bg/line-deer.png fill
+exec sh -c 'ls /home/_19/nixos_dots/bg | shuf -n1 | xargs -I{} swaybg -i "/home/_19/nixos_dots/bg/{}"'
 
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
@@ -199,5 +200,5 @@ bar {
     swaybar_command waybar
     mode invisible
 }
-default_border pixel 2
+default_border pixel 0
 include /etc/sway/config.d/*

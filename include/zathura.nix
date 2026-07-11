@@ -5,8 +5,12 @@
         enable = true;
         options = {
             selection-clipboard = "clipboard";
-
             font = "JetBrainsMono Nerd Font 11";
+            guioptions = "none";
+            recolor = "true";
+            scroll-step = "30";
+            page-v-padding = "2";
+            incremental-search = "true";
 
             notification-error-bg       = "rgba(40,40,40,1)";
             notification-error-fg       = "rgba(251,73,52,1)";

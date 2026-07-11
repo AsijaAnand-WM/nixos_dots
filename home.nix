@@ -13,6 +13,7 @@
         ./include/pkg.nix
         ./include/superfile.nix
         ./include/zathura.nix
+        ./include/jj.nix
     ];
 
 	home.username = "_19";

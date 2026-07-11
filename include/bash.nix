@@ -11,6 +11,7 @@
             jkf = "nvim $(fd | fzf --reverse)";
             bt  = "bluetui";
             tp  = "tmux popup";
+            sl  = "swaylock -c 000000";
 
             "."  = "cd ..";
             ".." = "cd ../..";
@@ -20,6 +21,8 @@
         };
 
         initExtra = ''
+            stty -ixon
+            shopt -s autocd
             export EDITOR=nvim
             export SUDO_EDITOR=nvim
             '';

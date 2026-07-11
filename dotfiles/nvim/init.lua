@@ -84,21 +84,21 @@ local gh = function(x) return 'https://github.com/' .. x end
 vim.pack.add({
     gh('unblevable/quick-scope'),
     gh('windwp/nvim-autopairs'),
-    gh('nvim-tree/nvim-web-devicons'),
-    gh('nvim-lualine/lualine.nvim'),
+    -- gh('nvim-tree/nvim-web-devicons'), --
+    gh('nvim-lualine/lualine.nvim'), --
     gh('catgoose/nvim-colorizer.lua'),
-    gh('stevearc/oil.nvim'),
-    gh('karb94/neoscroll.nvim'),
+    -- gh('stevearc/oil.nvim'), --
+    -- gh('karb94/neoscroll.nvim'), --
     gh('neovim/nvim-lspconfig');
     gh('lewis6991/gitsigns.nvim');
-    gh('ibhagwan/fzf-lua');
+    -- gh('ibhagwan/fzf-lua'); --
     gh('sainnhe/gruvbox-material');
-    gh('folke/todo-comments.nvim');
+    -- gh('folke/todo-comments.nvim'); --
     gh('j-hui/fidget.nvim');
     gh('stevearc/quicker.nvim');
     gh('hat0uma/csvview.nvim');
     gh('nvim-mini/mini.ai');
-    gh('nvim-mini/mini.splitjoin');
+    -- gh('nvim-mini/mini.splitjoin'); --
     gh('kylechui/nvim-surround');
 
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim';
@@ -137,16 +137,32 @@ require('lualine').setup({
         section_separators = '',
         component_separators = '',
     },
+    sections = {
+        lualine_c = {
+            {
+                'filename',
+                path = 1,
+            },
+        },
+        lualine_x = {
+            {
+                function()
+                    local reg = vim.fn.reg_recording()
+                    return reg ~= "" and ("Recording @" .. reg) or ""
+                end
+            },
+        },
+    },
 })
 
 require('colorizer').setup({})
-require('oil').setup({})
-require('neoscroll').setup({})
+-- require('oil').setup({})
+-- require('neoscroll').setup({})
 require('gitsigns').setup({})
-require('fzf-lua').setup({})
+-- require('fzf-lua').setup({})
 require('fidget').setup({})
 require('mini.ai').setup({})
-require('mini.splitjoin').setup({})
+-- require('mini.splitjoin').setup({})
 require('nvim-surround').setup({})
 
 require('csvview').setup({})
@@ -174,9 +190,9 @@ require("quicker").setup({
   },
 })
 
-require("todo-comments").setup({
-    signs = false,
-})
+-- require("todo-comments").setup({
+--     signs = false,
+-- })
 
 require("lsp_lines").setup({})
 vim.diagnostic.config({
@@ -216,7 +232,7 @@ vim.lsp.enable({
     'taplo',
 })
 
-vim.lsp.inlay_hint.enable(true)
+vim.lsp.inlay_hint.enable(false)
 vim.lsp.config('lua_ls', {
     settings = {
         Lua = {
@@ -231,23 +247,25 @@ vim.lsp.config('lua_ls', {
 
 vim.keymap.set('n', '<Esc>', ':noh<CR>')
 vim.keymap.set('i', 'jk', '<Esc>')
-vim.keymap.set('n', '<leader>n', ':Oil<CR>')
+-- vim.keymap.set('n', '<leader>n', ':Oil<CR>')
 vim.keymap.set('n', '<leader>w', ':update<CR>')
 vim.keymap.set('n', '<leader>x', ':x<CR>')
 vim.keymap.set('n', '<leader>tp', ':! tmux popup<CR>')
 
-vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>')
-vim.keymap.set('n', '<leader>fg', ':FzfLua live_grep<CR>')
-vim.keymap.set('n', '<leader>fc', ':FzfLua grep_cword<CR>')
-vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>')
-vim.keymap.set('n', '<leader>fo', ':FzfLua oldfiles<CR>')
-vim.keymap.set('n', '<leader>fd', ':FzfLua diagnostics_document<CR>')
-vim.keymap.set('n', '<leader>fw', ':FzfLua diagnostics_workspace<CR>')
-vim.keymap.set('n', '<leader>gd', ':FzfLua lsp_definitions<CR>')
-vim.keymap.set('n', '<leader>gr', ':FzfLua lsp_references<CR>')
-vim.keymap.set('n', '<leader>gi', ':FzfLua lsp_implementations<CR>')
-vim.keymap.set('n', '<leader>fa', ':FzfLua lsp_code_actions<CR>')
-vim.keymap.set('n', '<leader>fm', ':FzfLua marks<CR>')
+-- vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>') --
+-- vim.keymap.set('n', '<leader>fg', ':FzfLua live_grep<CR>') --
+-- vim.keymap.set('n', '<leader>fc', ':FzfLua grep_cword<CR>') --
+-- vim.keymap.set('n', '<leader>fb', ':FzfLua buffers<CR>') --
+-- vim.keymap.set('n', '<leader>fo', ':FzfLua oldfiles<CR>') --
+-- vim.keymap.set('n', '<leader>fd', ':FzfLua diagnostics_document<CR>')
+-- vim.keymap.set('n', '<leader>fw', ':FzfLua diagnostics_workspace<CR>')
+-- vim.keymap.set('n', '<leader>gd', ':FzfLua lsp_definitions<CR>')
+-- vim.keymap.set('n', '<leader>gr', ':FzfLua lsp_references<CR>') --
+-- vim.keymap.set('n', '<leader>gi', ':FzfLua lsp_implementations<CR>') --
+-- vim.keymap.set('n', '<leader>fa', ':FzfLua lsp_code_actions<CR>') --
+-- vim.keymap.set('n', '<leader>fm', ':FzfLua marks<CR>') --
+
+vim.keymap.set('n', 'gd', 'vim.lsp.buf.definition')
 
 vim.keymap.set("n", "<leader>q", function()
   require("quicker").toggle()

@@ -2,32 +2,39 @@
 
 {
     home.packages = with pkgs; [
-        fd
+
         bat
-        ripgrep
-        ripgrep-all
-        bluetui
-        ffmpeg
-        brave
-        waybar
-        tmux
-        blender
-        nodejs
-        glow
-        gimp
-        wev
-        wiremix
-        gittype
-        gomi
-        calcure
-        presenterm
-        gitu
-        fsel
+        bluetui #
+        brave   #
         cmus
-        yt-dlp
-        gnuplot
-        d2
+        colordiff
+        entr
+        fd
+        ffmpeg
+        fsel    #
+        gimp    
+        gittype #
+        gitu
+        glow    #
+        gnuplot #
+        gomi    #
+        moreutils
+        nodejs
+        parallel
+        presenterm
+        raylib   #
+        ripgrep
+        ripgrep-all  #
+        swaybg
         tealdeer
+        tmux
+        typst
+        waybar
+        wev      #
+        wiremix
+        yt-dlp   #
+        # chromium
+
         zen-browser.packages.${pkgs.system}.default
     ];
 }

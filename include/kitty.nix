@@ -9,15 +9,17 @@
             size = 11;
         };
 
-        themeFile = "zenbones_dark";
+        themeFile = "gruvbox-dark";
 
         settings = {
             window_padding_width = 4;
-            background_opacity = "0.9";
+            background_opacity = "0.95";
 
             cursor_trail = 3;
             cursor_trail_start_threshold = 0;
             cursor_trail_decay = "0.05 0.15";
+
+            background = "#241c1a";
         };
 
         shellIntegration.enableBashIntegration = true;
