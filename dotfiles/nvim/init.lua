@@ -125,9 +125,10 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     end,
 })
 
-vim.g.gruvbox_material_background = 'soft'
-vim.g.gruvbox_material_better_performance = 1
-vim.cmd.colorscheme('gruvbox-material')
+-- vim.g.gruvbox_material_background = 'soft'
+-- vim.g.gruvbox_material_better_performance = 1
+-- vim.cmd.colorscheme('gruvbox-material')
+vim.cmd.colorscheme('custom')
 
 require('nvim-autopairs').setup({})
 

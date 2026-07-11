@@ -13,13 +13,13 @@
 
         settings = {
             window_padding_width = 4;
-            background_opacity = "0.95";
+            background_opacity = "0.96";
 
             cursor_trail = 3;
             cursor_trail_start_threshold = 0;
             cursor_trail_decay = "0.05 0.15";
 
-            background = "#241c1a";
+            background = "#12100f";
         };
 
         shellIntegration.enableBashIntegration = true;
