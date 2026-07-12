@@ -5,19 +5,23 @@
 
         bat
         bluetui #
+        # chromium
         brave   #
+        btop
         cmus
         colordiff
+        devenv
         entr
         fd
         ffmpeg
         fsel    #
         gimp    
         gittype #
-        gitu
+        gitu    #
         glow    #
         gnuplot #
         gomi    #
+        lf
         moreutils
         nodejs
         parallel
@@ -33,7 +37,6 @@
         wev      #
         wiremix
         yt-dlp   #
-        # chromium
 
         zen-browser.packages.${pkgs.system}.default
     ];

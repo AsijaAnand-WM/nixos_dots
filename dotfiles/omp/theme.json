@@ -26,7 +26,7 @@
           "type": "path"
         },
         {
-            "foreground": "#ffeb3b",
+            "foreground": "#5FD7FF",
             "style": "plain",
             "options": {
                 "fetch_status": true,
@@ -34,7 +34,7 @@
                 "fetch_ahead_counter": true,
                 "ahead_icon": "⇡"
             },
-            "template": "<#ffffff>on</> {{ .Repository }}{{ if .ChangeId.Short }} <#888888>{{ .ChangeId.Short }}</>{{ end }}{{ if .Working.Changed }} <#D75F00>● {{ .Working.String }}</>{{ end }} ",
+            "template": "<#ffffff>on</> {{ .Repository }}{{ if .ChangeId.Short }} <#87FF00>{{ .ChangeId.Short }}</>{{ end }}{{ if .Working.Changed }} <#D75F00> \u25cf {{ .Working.String }}</>{{ end }} ",
             "type": "jujutsu"
         },
         {

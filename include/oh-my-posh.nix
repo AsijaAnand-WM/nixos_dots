@@ -5,6 +5,6 @@
         enable = true;
         enableBashIntegration = true;
         # useTheme = "half-life";
-        configFile =  builtins.readFile ../dotfiles/omp/theme.json;
+        configFile =  ../dotfiles/omp/theme.json;
     };
 }

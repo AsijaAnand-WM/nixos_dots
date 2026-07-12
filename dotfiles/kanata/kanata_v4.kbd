@@ -1,74 +1,35 @@
 (defsrc
-        esc prtsc
-        tab     q     w     e     r     t         y     u     i     o     p
+                q     w     e     r     t         y     u     i     o     p
         caps    a     s     d     f     g         h     j     k     l     ;
                 z     x     c     v     b         n     m     ,     .     /
-                lalt                    spc                            ralt
+                                                    ralt
   )
 
 (deflayer base
-        esc prtsc
-        tab     q     w     e     r     t         y     u     i     o     p
-        lctl    a     s     d     f     g         h     j     k     l     ;
+                q     w     e     r     t         y     u     i     o     p
+        @lay    a     s     d     f     g         h     j     k     l     ;
                 z     x     c     v     b         n     m     ,     .     /
-                @hrm_lalt               @hrm_spc                  @hrm_ralt
+                                                    lsft
         )
 
 (deflayer sym
-        XX XX
-        _       XX    @!    @@    @#    @$        @^    @?    @apos @dapos XX
-        _       @<    @[    @{    @pl   @*        @&    @pr   @}    @]     @>
-                XX    @~    @\    @|    XX        grv   @-    @_    XX     XX
-                XX                      @=                                 XX
+                XX    grv   @-    @=    @apos     XX     4     5     6     XX
+        _       @[    @]    @{    @}    bspc      ret    0     1     2     3
+                XX    XX    @\    XX    XX        XX     7     8     9     @/
+                                                    lsft
         )
-
-(deflayer num
-        XX XX
-        _       XX    XX    _     XX    @+        XX    @*    XX    XX     XX
-        _       1     2     3     4     5         6     7     8     9      0 
-                XX    _     @-    @%    _         lsft  @/    _     _      XX
-                @num_lalt               @num_space                         XX
-        )
-
-(deftemplate temp (keytap keyhold)
-        (tap-hold-press 200 200 $keytap $keyhold)
-        )
-
 
 (defalias
-        !      S-1
-        @      S-2
-        #      S-3
-        $      S-4
-        ^      S-6
-        ?      S-/
         apos   '
-        dapos  S-'
-        <      S-,
         [      [
         {      S-[
-        pl     S-9
-        *      S-8
-        &      S-7
-        pr     S-0
         }      S-]
         ]      ]
-        >      S-.
-        ~      S-grv
         \      \
-        |      S-\
         -      -
-        _      S--
         =      =
-        +      S-= 
-        %      S-5
         /      /
 
-        hrm_lalt (t! temp bspc (layer-while-held sym))
-        hrm_spc  (t! temp spc  lsft)
-        hrm_ralt (t! temp ret  (layer-while-held num))
-
-        num_lalt  (t! temp (one-shot-press 1000 lalt) lalt)
-        num_space (t! temp (one-shot-press 1000 lmet) lmet)
-        )
+        lay (layer-while-held sym)
+)
 
