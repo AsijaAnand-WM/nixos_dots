@@ -8,8 +8,10 @@
         # chromium
         brave   #
         btop
+        caligula
         cmus
         colordiff
+        deno
         devenv
         entr
         fd
