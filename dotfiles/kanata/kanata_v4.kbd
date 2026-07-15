@@ -1,26 +1,28 @@
 (defsrc
-                q     w     e     r     t         y     u     i     o     p
-        caps    a     s     d     f     g         h     j     k     l     ;
-                z     x     c     v     b         n     m     ,     .     /
-                                                    ralt
+                1     2     3     4     5         6     7     8     9     0
+        tab     q     w     e     r     t         y     u     i     o     p
+        caps    a     s     d     f     g         h     j     k     l     ;     '
+        lsft    z     x     c     v     b         n     m     ,     .     /
+                lmet  lalt                  spc               ralt  rctl
   )
 
 (deflayer base
-                q     w     e     r     t         y     u     i     o     p
-        @lay    a     s     d     f     g         h     j     k     l     ;
-                z     x     c     v     b         n     m     ,     .     /
-                                                    lsft
+                @l    @l    @l    @l    @l        @l    @l    @l    @l    @l
+        tab     q     w     e     r     t         y     u     i     o     p
+        bspc    a     s     d     f     g         h     j     k     l     ;     '
+        lsft    z     x     c     v     b         n     m     ,     .     /
+                lmet  lctl                  spc               ret   lalt
         )
 
 (deflayer sym
-                XX    grv   @-    @=    @apos     XX     4     5     6     XX
-        _       @[    @]    @{    @}    bspc      ret    0     1     2     3
-                XX    XX    @\    XX    XX        XX     7     8     9     @/
-                                                    lsft
+                _     _     _     _     _         _     _     _     _     _
+        _       XX    @\    grv   @-    @=        XX    4     5     6     XX
+        _       @[    @]    @{    @}    XX        XX    1     2     3     lalt  _
+        _       XX    XX    XX    XX    XX        XX    7     8     9     0
+                _     _                      _                _     _
         )
 
 (defalias
-        apos   '
         [      [
         {      S-[
         }      S-]
@@ -30,6 +32,6 @@
         =      =
         /      /
 
-        lay (layer-while-held sym)
+        l (layer-while-held sym)
 )
 

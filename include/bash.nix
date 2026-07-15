@@ -7,12 +7,12 @@
         shellAliases = {
             home_test = "echo I am _19";
             tx  = "tmux";
+            jk  = "nvim";
             jkf = "nvim $(fd | fzf --reverse)";
             bt  = "bluetui";
             tp  = "tmux popup";
             sl  = "swaylock -c 000000";
             z   = "zathura";
-            v   = "nvim";
             diff = "colordiff -y";
 
             "."  = "cd ..";
