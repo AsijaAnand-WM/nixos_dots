@@ -7,13 +7,7 @@
         {
           "foreground": "#7E46B6",
           "style": "plain",
-          "template": "{{ .UserName }} ",
-          "type": "session"
-        },
-        {
-          "foreground": "#ffffff",
-          "style": "plain",
-          "template": "in ",
+          "template": "{{ if .Env.DEVSHELL_NAME }} {{ .Env.DEVSHELL_NAME }} {{ end }}",
           "type": "text"
         },
         {

@@ -27,6 +27,7 @@
             shopt -s autocd
             export EDITOR=nvim
             export SUDO_EDITOR=nvim
+            eval "$(devenv hook bash)"
             '';
     };
 }

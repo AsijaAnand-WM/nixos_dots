@@ -17,8 +17,8 @@
 (deflayer sym
                 _     _     _     _     _         _     _     _     _     _
         _       XX    @\    grv   @-    @=        XX    4     5     6     XX
-        _       @[    @]    @{    @}    XX        XX    1     2     3     lalt  _
-        _       XX    XX    XX    XX    XX        XX    7     8     9     0
+        _       XX    XX    @}    @{    @pr       @pl   1     2     3     0     _
+        _       XX    @<    @>    @[    @]        XX    7     8     9     /
                 _     _                      _                _     _
         )
 
@@ -31,6 +31,10 @@
         -      -
         =      =
         /      /
+        pl     S-9
+        pr     S-0
+        <      S-,
+        >      S-.
 
         l (layer-while-held sym)
 )

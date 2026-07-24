@@ -46,6 +46,24 @@
         powerOnBoot = true;
     };
 
+    programs.nix-ld.enable = true;
+    programs.nix-ld.libraries = with pkgs; [
+            SDL2
+            alsa-lib
+            flac
+            libGL
+            libogg
+            libsndfile
+            libvorbis
+            libxkbcommon
+            pulseaudio
+            vulkan-loader
+            wayland
+            xorg.libX11
+            xorg.libXcursor
+            xorg.libXi
+            xorg.libXrandr
+    ];
 # Kanata - Remap
     # # boot.kernelModules = [ "uinput" ];
     # # hardware.uinput.enable = true;
@@ -80,11 +98,12 @@
 # $ nix search wget
     environment.systemPackages = with pkgs; [
         bluez
-            brightnessctl
-            gcc15
-            wl-clipboard
-            unzip
-            unrar
+        brightnessctl
+        gcc15
+        wl-clipboard
+        unzip
+        unrar
+        (import ./include/wycry.nix { inherit pkgs; })
     ];
 
     fonts.packages = with pkgs; [

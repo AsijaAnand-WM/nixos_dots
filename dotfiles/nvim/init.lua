@@ -93,6 +93,7 @@ vim.pack.add({
     gh('lewis6991/gitsigns.nvim');
     -- gh('ibhagwan/fzf-lua'); --
     gh('sainnhe/gruvbox-material');
+    gh('nvim-mini/mini.pick');
     -- gh('folke/todo-comments.nvim'); --
     gh('j-hui/fidget.nvim');
     gh('stevearc/quicker.nvim');
@@ -100,6 +101,7 @@ vim.pack.add({
     gh('nvim-mini/mini.ai');
     -- gh('nvim-mini/mini.splitjoin'); --
     gh('kylechui/nvim-surround');
+    gh('godlygeek/tabular');
 
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim';
 })
@@ -164,6 +166,7 @@ require('fidget').setup({})
 require('mini.ai').setup({})
 -- require('mini.splitjoin').setup({})
 require('nvim-surround').setup({})
+require('mini.pick').setup({})
 
 require('csvview').setup({})
 vim.api.nvim_create_autocmd("FileType", {
@@ -250,9 +253,11 @@ vim.keymap.set('i', 'jk', '<Esc>')
 -- vim.keymap.set('n', '<leader>n', ':Oil<CR>')
 vim.keymap.set('n', '<leader>w', ':update<CR>')
 vim.keymap.set('n', '<leader>x', ':x<CR>')
-vim.keymap.set('n', '<leader>tp', ':! tmux popup<CR>')
-vim.keymap.set('n', '<leader>f', ':Ex<CR>')
+vim.keymap.set('n', '<leader>t', ':! tmux popup<CR>')
+-- vim.keymap.set('n', '<leader>f', ':Ex<CR>')
 
+vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
+vim.keymap.set('n', '<leader>b', ':Pick buffers<CR>')
 
 -- vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>') --
 -- vim.keymap.set('n', '<leader>fg', ':FzfLua live_grep<CR>') --

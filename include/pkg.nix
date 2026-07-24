@@ -20,7 +20,7 @@
         gimp    
         gittype #
         gitu    #
-        glow    #
+        glow    
         gnuplot #
         gomi    #
         lf
@@ -39,6 +39,12 @@
         wev      #
         wiremix
         yt-dlp   #
+
+        gzdoom
+        freedoom
+        steam-run
+        vkquake
+        ironwail
 
         zen-browser.packages.${pkgs.system}.default
     ];
