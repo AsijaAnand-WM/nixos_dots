@@ -70,38 +70,46 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 --Quick-Scope
-vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
-vim.api.nvim_create_autocmd("ColorScheme", {
-    pattern = "*",
-    callback = function()
-        vim.cmd("highlight QuickScopePrimary guifg=#afff5f gui=underline")
-        vim.cmd("highlight QuickScopeSecondary guifg=#5fffff gui=underline")
-    end,
-})
+-- vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
+-- vim.api.nvim_create_autocmd("ColorScheme", {
+--     pattern = "*",
+--     callback = function()
+--         vim.cmd("highlight QuickScopePrimary guifg=#afff5f gui=underline")
+--         vim.cmd("highlight QuickScopeSecondary guifg=#5fffff gui=underline")
+--     end,
+-- })
 -- ========================= PLUGINS =========================
 
 local gh = function(x) return 'https://github.com/' .. x end
 vim.pack.add({
-    gh('unblevable/quick-scope'),
-    gh('windwp/nvim-autopairs'),
-    -- gh('nvim-tree/nvim-web-devicons'), --
-    gh('nvim-lualine/lualine.nvim'), --
-    gh('catgoose/nvim-colorizer.lua'),
-    -- gh('stevearc/oil.nvim'), --
-    -- gh('karb94/neoscroll.nvim'), --
-    gh('neovim/nvim-lspconfig');
-    gh('lewis6991/gitsigns.nvim');
-    -- gh('ibhagwan/fzf-lua'); --
-    gh('sainnhe/gruvbox-material');
-    gh('nvim-mini/mini.pick');
+
     -- gh('folke/todo-comments.nvim'); --
-    gh('j-hui/fidget.nvim');
-    gh('stevearc/quicker.nvim');
-    gh('hat0uma/csvview.nvim');
-    gh('nvim-mini/mini.ai');
+    -- gh('ibhagwan/fzf-lua'); --
+    -- gh('karb94/neoscroll.nvim'), --
     -- gh('nvim-mini/mini.splitjoin'); --
-    gh('kylechui/nvim-surround');
+    -- gh('nvim-tree/nvim-web-devicons'), --
+    -- gh('saghen/blink.cmp');
+    -- gh('saghen/blink.lib');
+    -- gh('stevearc/oil.nvim'), --
+    -- gh('tpope/vim-dispatch');
+    -- gh('unblevable/quick-scope'),
+    gh('Eandrju/cellular-automaton.nvim');
+    gh('Wansmer/treesj');
+    gh('catgoose/nvim-colorizer.lua'),
+    gh('chrisgrieser/nvim-spider');
+    gh('folke/flash.nvim');
     gh('godlygeek/tabular');
+    gh('hat0uma/csvview.nvim');
+    gh('j-hui/fidget.nvim');
+    gh('kylechui/nvim-surround');
+    gh('lewis6991/gitsigns.nvim');
+    gh('neovim/nvim-lspconfig');
+    gh('nvim-lualine/lualine.nvim'), --
+    gh('nvim-mini/mini.ai');
+    gh('nvim-mini/mini.pick');
+    gh('sainnhe/gruvbox-material');
+    gh('stevearc/quicker.nvim');
+    gh('windwp/nvim-autopairs'),
 
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim';
 })
@@ -166,9 +174,39 @@ require('fidget').setup({})
 require('mini.ai').setup({})
 -- require('mini.splitjoin').setup({})
 require('nvim-surround').setup({})
-require('mini.pick').setup({})
+-- require('mini.pick').setup({})
+require("mini.pick").setup({
+    options = {
+        content_from_bottom = true,
+    },
+    window = {
+        config = function()
+            local height = math.floor(vim.o.lines * 0.25)
+
+            return {
+                anchor = "SW",
+                relative = "editor",
+
+                row = vim.o.lines - 0, -- bottom of screen
+                col = 0,
+
+                width = vim.o.columns,
+                height = height,
+
+                border = "none",
+                title = "",
+            }
+        end,
+    },
+})
+require('treesj').setup({})
+
+-- require('blink.cmp').build():pwait()
+-- require('blink.cmp').setup()
 
 require('csvview').setup({})
+-- require('cellular-automaton').setup({})
+require('flash').setup({})
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "csv",
     callback = function()
@@ -178,18 +216,8 @@ vim.api.nvim_create_autocmd("FileType", {
 
 require("quicker").setup({
   keys = {
-    {
-      ">",
-      function()
-        require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
-      end
-    },
-    {
-      "<",
-      function()
-        require("quicker").collapse()
-      end
-    },
+    { ">", function() require("quicker").expand({ before = 2, after = 2, add_to_existing = true }) end },
+    { "<", function() require("quicker").collapse() end },
   },
 })
 
@@ -259,6 +287,8 @@ vim.keymap.set('n', '<leader>t', ':! tmux popup<CR>')
 vim.keymap.set('n', '<leader>f', ':Pick files<CR>')
 vim.keymap.set('n', '<leader>b', ':Pick buffers<CR>')
 
+vim.keymap.set('n', '<leader>j', ':TSJToggle<CR>')
+
 -- vim.keymap.set('n', '<leader>ff', ':FzfLua files<CR>') --
 -- vim.keymap.set('n', '<leader>fg', ':FzfLua live_grep<CR>') --
 -- vim.keymap.set('n', '<leader>fc', ':FzfLua grep_cword<CR>') --
@@ -272,13 +302,18 @@ vim.keymap.set('n', '<leader>b', ':Pick buffers<CR>')
 -- vim.keymap.set('n', '<leader>fa', ':FzfLua lsp_code_actions<CR>') --
 -- vim.keymap.set('n', '<leader>fm', ':FzfLua marks<CR>') --
 
-vim.keymap.set('n', 'gd', 'vim.lsp.buf.definition')
+vim.keymap.set({ "n", "x", "o" }, "s", function() require('flash').jump() end)
+vim.keymap.set({ "n", "x", "o" }, "S", function() require('flash').treesitter() end)
+vim.keymap.set("o", "r", function() require('flash').remote() end)
 
-vim.keymap.set("n", "<leader>q", function()
-  require("quicker").toggle()
-end)
-vim.keymap.set("n", "<leader>l", function()
-  require("quicker").toggle({ loclist = true })
-end)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+
+vim.keymap.set("n", "<leader>q", function() require("quicker").toggle() end)
+vim.keymap.set("n", "<leader>l", function() require("quicker").toggle({ loclist = true }) end)
+
+vim.keymap.set({ "n", "o", "x" }, "w",  function() require("spider").motion("w") end)
+vim.keymap.set({ "n", "o", "x" }, "e",  function() require("spider").motion("e") end)
+vim.keymap.set({ "n", "o", "x" }, "b",  function() require("spider").motion("b") end)
+vim.keymap.set({ "n", "o", "x" }, "ge", function() require("spider").motion("ge") end)
 
 -- ========================= __END__ =========================

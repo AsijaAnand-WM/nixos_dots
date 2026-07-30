@@ -21,6 +21,7 @@
         gittype #
         gitu    #
         glow    
+        gnumake
         gnuplot #
         gomi    #
         lf
@@ -34,11 +35,23 @@
         swaybg
         tealdeer
         tmux
+        tree
         typst
         waybar
         wev      #
         wiremix
         yt-dlp   #
+        # dmenu
+        (dmenu.override {
+             patches = [
+                 ./patches/fuzzy.diff
+                 ./patches/fuzzy_highlight.diff
+             ];
+         })
+        pass
+        figlet
+        secretspec
+        hurl
 
         gzdoom
         freedoom

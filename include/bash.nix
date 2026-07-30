@@ -8,11 +8,11 @@
             home_test = "echo I am _19";
             tx  = "tmux";
             jk  = "nvim";
-            jkf = "nvim $(fd | fzf --reverse)";
+            # jkf = "nvim $(fd | fzf --reverse)";
             bt  = "bluetui";
             tp  = "tmux popup";
             sl  = "swaylock -c 000000";
-            z   = "zathura";
+            z   = "zathura --fork";
             diff = "colordiff -y";
 
             "."  = "cd ..";
