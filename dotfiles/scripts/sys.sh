@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-choose="$(printf "shutdown\nreboot\nkill\npkill" | dmenu -b -i -l 15 \
+choose="$(printf "zen\nzathura\nwallpaper\nshutdown\nreboot\nkill" | dmenu -b -i -l 15 \
                         -p 'sys:'   \
                         -nb '#0d0401' \
                         -nf '#ebdbb2' \
@@ -8,8 +8,20 @@ choose="$(printf "shutdown\nreboot\nkill\npkill" | dmenu -b -i -l 15 \
                         -sf '#ebdbb2' )"
 
 [[ -z $choose ]] && exit 0
+if [[ $choose == "zen" ]]; then
+    zen
+elif [[ $choose == wallpaper ]]; then
+    img="$(fd -tf . "$HOME/nixos_dots/bg/" | dmenu -b -i -l 15 \
+                            -p 'wallpaper:'   \
+                            -nb '#0d0401' \
+                            -nf '#ebdbb2' \
+                            -sb '#403833' \
+                            -sf '#ebdbb2' )"
 
-if [[ $choose == "shutdown" ]]; then
+    [[ -z $img ]] && exit 0
+    pkill swaybg &> /dev/null
+    swaybg -i "$img" &> /dev/null
+elif [[ $choose == "shutdown" ]]; then
     shutdown now
 elif [[ $choose == "reboot" ]]; then
     reboot
@@ -25,15 +37,5 @@ elif [[ $choose == "kill" ]]; then
     [[ -z $process ]] && exit 0
     kill "${process}" &> /dev/null
 else
-    process="$(ps -eo pid=,comm= | dmenu -b -i -l 15 \
-                        -p 'pkill:'   \
-                        -nb '#0d0401' \
-                        -nf '#ebdbb2' \
-                        -sb '#403833' \
-                        -sf '#ebdbb2' |
-                        awk '{ print $2 }'
-    )"
-    [[ -z $process ]] && exit 0
-    pkill "${process}" &> /dev/null
+    kitty -- bash -c "$choose; exec bash"
 fi
-

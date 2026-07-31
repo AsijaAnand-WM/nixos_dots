@@ -1,14 +1,14 @@
 {pkgs, ...}:
 
-pkgs.writeShellScriptBin "wycry" ''
-    loc="$(fd -t d . ~/FullStackOpen | fzf --reverse)"
-    [ -z "$loc" ] && exit 0
+pkgs.writeShellScriptBin "jkf" ''
+    choose="$(fd --hidden --no-ignore . "$HOME/" | dmenu -b -i -l 15 \
+                            -p 'project:'   \
+                            -nb '#0d0401' \
+                            -nf '#ebdbb2' \
+                            -sb '#403833' \
+                            -sf '#ebdbb2' )"
 
-    if [ -n "$TMUX" ]; then
-        tmux new-session -Ad -s "$loc" -c "$loc"
-        tmux switch-client -t "$loc"
-    else
-        tmux new-session -A -s "$loc" -c "$loc"
-    fi
+    [[ -z $choose ]] && exit 0
+    nvim "$choose"
     ''
 
