@@ -12,6 +12,8 @@ bindsym $mod+d exec $menu
 for_window [title="^launcher$"] floating enable, resize set width 400 height 700, border none
 
 bindsym $mod+s exec $HOME/nixos_dots/dotfiles/scripts/music.sh
+bindsym $mod+a exec $HOME/nixos_dots/dotfiles/scripts/wallpaper.sh
+bindsym $mod+z exec $HOME/nixos_dots/dotfiles/scripts/sys.sh
 
 # Clipboard history
 bindsym $mod+c exec 'alacritty --title clipboard -e fsel --cclip'
@@ -136,7 +138,7 @@ input type:touchpad {
     bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
+    # bindsym $mod+a focus parent
 
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
