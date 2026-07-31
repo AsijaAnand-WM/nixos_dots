@@ -14,6 +14,7 @@
         ./include/superfile.nix
         ./include/zathura.nix
         ./include/jj.nix
+        ./include/mako.nix
     ];
 
 	home.username = "_19";

@@ -57,6 +57,7 @@
         figlet
         secretspec
         hurl
+        libnotify
 
         gzdoom
         freedoom

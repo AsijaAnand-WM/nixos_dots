@@ -23,7 +23,7 @@ elif [[ $choose == "kill" ]]; then
                         awk '{ print $1 }'
     )"
     [[ -z $process ]] && exit 0
-    kill "${process%% *}" &> /dev/null
+    kill "${process}" &> /dev/null
 else
     process="$(ps -eo pid=,comm= | dmenu -b -i -l 15 \
                         -p 'pkill:'   \
@@ -34,6 +34,6 @@ else
                         awk '{ print $2 }'
     )"
     [[ -z $process ]] && exit 0
-    pkill "${process##* }" &> /dev/null
+    pkill "${process}" &> /dev/null
 fi
 

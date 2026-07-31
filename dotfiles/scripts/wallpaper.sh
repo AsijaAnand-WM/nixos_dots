@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 
 choose="$(fd -tf . "$HOME/nixos_dots/bg/" | dmenu -b -i -l 15 \
-                        -p 'Wallpaper:'   \
+                        -p 'wallpaper:'   \
                         -nb '#0d0401' \
                         -nf '#ebdbb2' \
                         -sb '#403833' \
                         -sf '#ebdbb2' )"
 
-if [[ -z $choose ]]; then
-    exit 0
-fi
-
+[[ -z $choose ]] && exit 0
 pkill swaybg &> /dev/null
 swaybg -i "$choose" &> /dev/null

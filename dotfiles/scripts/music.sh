@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 choose="$(fd -tf . "$HOME/music/" | dmenu -b -i -l 15 \
-                        -p 'Music:'   \
+                        -p 'music:'   \
                         -nb '#0d0401' \
                         -nf '#ebdbb2' \
                         -sb '#403833' \

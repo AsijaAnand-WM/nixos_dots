@@ -1,18 +1,15 @@
 #!/usr/bin/env bash
 
 choose="$(fd -td . "$HOME/FullStackOpen/" | dmenu -b -i -l 15 \
-                        -p 'Music:'   \
+                        -p 'project:'   \
                         -nb '#0d0401' \
                         -nf '#ebdbb2' \
                         -sb '#403833' \
                         -sf '#ebdbb2' )"
 
-echo $choose
-if [[ -z $choose ]]; then
-    exit 0
-fi
+[[ -z $choose ]] && exit 0
 
-if [ -n "$TMUX" ]; then
+if [[ -n "$TMUX" ]]; then
     tmux new-session -Ad -s "$choose" -c "$choose"
     tmux switch-client -t "$choose"
 else
