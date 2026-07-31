@@ -14,6 +14,7 @@ for_window [title="^launcher$"] floating enable, resize set width 400 height 700
 bindsym $mod+s exec $HOME/nixos_dots/dotfiles/scripts/music.sh
 bindsym $mod+a exec $HOME/nixos_dots/dotfiles/scripts/wallpaper.sh
 bindsym $mod+z exec $HOME/nixos_dots/dotfiles/scripts/sys.sh
+bindsym $mod+p exec /home/_19/nixos_dots/dotfiles/scripts/project_picker.sh
 
 # Clipboard history
 bindsym $mod+c exec 'alacritty --title clipboard -e fsel --cclip'
