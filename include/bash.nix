@@ -18,6 +18,9 @@
             "."  = "cd ..";
             ".." = "cd ../..";
 
+# pkgs.writeShellScriptBin "jkf" ''
+#     fd | fzf --multi --reverse | xargs -r nvim
+# ''
             nrs = "sudo nixos-rebuild switch --flake /home/_19/nixos_dots/.#neunzehnte --impure";
             nixclean = "nix-collect-garbage --delete-older-than 10d";
         };

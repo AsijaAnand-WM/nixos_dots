@@ -11,6 +11,8 @@ set $menu kitty --title launcher -e fsel
 bindsym $mod+d exec $menu
 for_window [title="^launcher$"] floating enable, resize set width 400 height 700, border none
 
+bindsym $mod+s exec $HOME/nixos_dots/dotfiles/scripts/music.sh
+
 # Clipboard history
 bindsym $mod+c exec 'alacritty --title clipboard -e fsel --cclip'
 
@@ -116,7 +118,7 @@ input type:touchpad {
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
+    # bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 

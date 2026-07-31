@@ -42,10 +42,15 @@
         wiremix
         yt-dlp   #
         # dmenu
+        # (pkgs.dmenu.overrideAttrs (old: {
+        #     patches = [
+        #         ./patches/fuzzy.diff
+        #         ./patches/fuzzy_highlight.diff
+        #     ];
+        # }))
         (dmenu.override {
              patches = [
                  ./patches/fuzzy.diff
-                 ./patches/fuzzy_highlight.diff
              ];
          })
         pass

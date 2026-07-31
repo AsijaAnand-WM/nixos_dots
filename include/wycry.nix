@@ -12,6 +12,3 @@ pkgs.writeShellScriptBin "wycry" ''
     fi
     ''
 
-pkgs.writeShellScriptBin "jkf" ''
-    fd | fzf --multi --reverse | xargs -r nvim
-''
