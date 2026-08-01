@@ -103,7 +103,7 @@
         wl-clipboard
         unzip
         unrar
-        (import ./include/wycry.nix { inherit pkgs; })
+        # (import ./include/wycry.nix { inherit pkgs; })
     ];
 
     fonts.packages = with pkgs; [

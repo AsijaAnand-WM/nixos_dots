@@ -9,6 +9,9 @@ pkgs.writeShellScriptBin "jkf" ''
                             -sf '#ebdbb2' )"
 
     [[ -z $choose ]] && exit 0
-    nvim "$choose"
+    if [[ -d $choose ]]; then
+        cd "$choose" || exit 0
+    else
+        nvim "$choose"
     ''
 

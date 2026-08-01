@@ -8,13 +8,13 @@
             home_test = "echo I am _19";
             tx  = "tmux";
             jk  = "nvim";
-            # jkf = "nvim $(fd | fzf --reverse)";
+            jkf = "source $HOME/nixos_dots/dotfiles/scripts/jkf.sh";
             bt  = "bluetui";
             tp  = "tmux popup";
             sl  = "swaylock -c 000000";
             z   = "zathura --fork";
             diff = "colordiff -y";
-
+            
             "."  = "cd ..";
             ".." = "cd ../..";
 

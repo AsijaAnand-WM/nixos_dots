@@ -15,7 +15,7 @@
         ./include/zathura.nix
         ./include/jj.nix
         ./include/mako.nix
-        ./include/ranger.nix
+        # ./include/ranger.nix
     ];
 
 	home.username = "_19";
