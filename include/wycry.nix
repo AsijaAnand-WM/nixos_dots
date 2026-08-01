@@ -1,7 +1,7 @@
 {pkgs, ...}:
 
 pkgs.writeShellScriptBin "jkf" ''
-    choose="$(fd --hidden --no-ignore . "$HOME/" | dmenu -b -i -l 15 \
+    choose="$(fd --hidden --no-ignore . | dmenu -b -i -l 15 \
                             -p 'project:'   \
                             -nb '#0d0401' \
                             -nf '#ebdbb2' \

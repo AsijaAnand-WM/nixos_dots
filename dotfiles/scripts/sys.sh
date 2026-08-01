@@ -8,8 +8,17 @@ choose="$(printf "zen\nzathura\nwallpaper\nshutdown\nreboot\nkill" | dmenu -b -i
                         -sf '#ebdbb2' )"
 
 [[ -z $choose ]] && exit 0
+
 if [[ $choose == "zen" ]]; then
     zen
+elif [[ $choose == "zathura" ]]; then
+    book="$(fd -tf . "$HOME/RES" | dmenu -b -i -l 15 \
+                        -p 'sys:'   \
+                        -nb '#0d0401' \
+                        -nf '#ebdbb2' \
+                        -sb '#403833' \
+                        -sf '#ebdbb2' )"
+    zathura --fork "$book"
 elif [[ $choose == wallpaper ]]; then
     img="$(fd -tf . "$HOME/nixos_dots/bg/" | dmenu -b -i -l 15 \
                             -p 'wallpaper:'   \

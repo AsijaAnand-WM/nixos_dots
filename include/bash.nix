@@ -22,12 +22,13 @@
 #     fd | fzf --multi --reverse | xargs -r nvim
 # ''
             nrs = "sudo nixos-rebuild switch --flake /home/_19/nixos_dots/.#neunzehnte --impure";
+            nrso = "sudo nixos-rebuild switch --flake --offline /home/_19/nixos_dots/.#neunzehnte --impure";
             nixclean = "nix-collect-garbage --delete-older-than 10d";
         };
 
         initExtra = ''
             stty -ixon
-            shopt -s autocd
+            # shopt -s autocd
             export EDITOR=nvim
             export SUDO_EDITOR=nvim
             eval "$(devenv hook bash)"
