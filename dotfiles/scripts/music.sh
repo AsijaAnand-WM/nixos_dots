@@ -14,6 +14,7 @@ choose="$({
 
 if [[ $choose == "download" ]]; then
     link="$(wl-paste)"
+    echo "$link" >> music.txt
     link_cleaned="${link%%&list*}"
     continue="$(echo "continue" | dmenu -b -i -l 15 \
                             -p "$link_cleaned:"   \

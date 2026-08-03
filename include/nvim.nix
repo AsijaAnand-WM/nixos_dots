@@ -46,6 +46,7 @@
                   p.lua
                   p.javascript
                   p.typescript
+                  p.hurl
             ]))
         ];
 

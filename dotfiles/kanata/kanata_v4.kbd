@@ -16,7 +16,7 @@
 
 (deflayer sym
                 _     _     _     _     _         _     _     _     _     _
-        _       XX    @\    grv   @-    @=        XX    4     5     6     XX
+        _       XX    @\    grv   @-    @=        XX    4     5     6     '
         _       XX    XX    @}    @{    @pr       @pl   1     2     3     0     _
         _       XX    @<    @>    @[    @]        right 7     8     9     /
                 _     _                      _                _     _

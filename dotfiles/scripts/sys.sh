@@ -18,6 +18,7 @@ elif [[ $choose == "zathura" ]]; then
                         -nf '#ebdbb2' \
                         -sb '#403833' \
                         -sf '#ebdbb2' )"
+    [[ -z $book ]] && exit 0
     zathura --fork "$book"
 elif [[ $choose == wallpaper ]]; then
     img="$(fd -tf . "$HOME/nixos_dots/bg/" | dmenu -b -i -l 15 \
